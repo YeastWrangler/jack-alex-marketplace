@@ -4,18 +4,18 @@ import {useEffect, useState} from "react"
 import ItemList from "./ItemList"
 
 
-function Homepage () {
-const [itemList, setItemList] = useState()
+function Homepage ({currentCart, setCurrentCart}) {
+const [itemList, setItemList] = useState([])
 
     useEffect(() => {
-        getAPI().then((data)=> {
-        console.log(data)
-        setItemList(data)
+        getAPI().then((items)=> {
+      
+        setItemList(items.items)
     }) 
 }, [])
-return <p>Hello
-        <ItemList items={itemList}/>
-</p>
+return <div>Hello
+        <ItemList items={itemList} currentCart={currentCart} setCurrentCart={setCurrentCart}/>
+</div>
 }
 
 export default Homepage

@@ -1,5 +1,5 @@
 import React from 'react'
-import {getAPI} from "../API"
+import {getAPI, patchUser} from "../API"
 import {useState, useEffect} from 'react'
 
 
@@ -13,28 +13,64 @@ const ChangeUser = ({currentUser, setCurrentUser}) => {
         
     }, [])
 
-    const Profile = (currentUser, users) => {
-        const currentUserInfo = users.filter(user => user.username === currentUser)
-        console.log(currentUser)
-        return (
-            <div>
-                <p>username:{currentUserInfo.username} </p>
-                <img src={currentUserInfo.avatar_url} alt={currentUserInfo.username} width="150px"/>
-                <p>kudos:{currentUserInfo.kudos}</p>
-                
-            </div>
-        )
+    const Profile = () => {
+        const [currentUserInfo] = users.filter(user => user.username === currentUser)
+        if (currentUserInfo) {
+            return (
+                <div>
+                    <p>username:{currentUserInfo.username} </p>
+                    <img src={currentUserInfo.avatar_url} alt={currentUserInfo.username} width="150px"/>
+                    <p>kudos:{currentUserInfo.kudos}</p>  
+                </div>
+            )
+        }
+    }
+
+    const giveKudos = (event) => {
+        return patchUser(event.target.value)
+        .then((res) => {
+            setUsers(users.map((user) => {
+                if(user.username === event.target.value) {
+                    return {
+                        username : user.username,
+                        avatar_url : user.avatar_url,
+                        kudos : user.kudos + 1,
+                        items_in_basket : user.items_in_basket,
+                        items_ordered : user.items_ordered,
+                        error: undefined
+                    }
+                } else return user
+            }))
+            return
+        })
+        .catch(() => {
+            setUsers(users.map((user) => {
+                if(user.username === event.target.value) {
+                    return {
+                        username : user.username,
+                        avatar_url : user.avatar_url,
+                        kudos : user.kudos,
+                        items_in_basket : user.items_in_basket,
+                        items_ordered : user.items_ordered,
+                        error : 'Could not give kudos, please refresh and try again'
+                    }
+                } else return user
+            }))
+            return
+        })
     }
 
 
     return (
         <section>
-            {Profile(currentUser, users)}
+            <div>{Profile()}</div>
             <ul> {users.map((user)=> {
                     return <li key={user.username}> 
                     <p>username:{user.username} </p>
                     <img src={user.avatar_url} alt={user.username} width="75px"/>
-                    <p>kudos:{user.kudos}</p>
+                    <p>kudos:{user.kudos} 
+                    <button onClick={giveKudos} value={user.username}>Give kudos</button></p>
+                    <p>{user.error}</p>
                     <button onClick={() => {
                         setCurrentUser(user.username)
                     }}>Click to select this user</button>

@@ -16,22 +16,21 @@ const [currentCart, setCurrentCart] = useState([])
   
   //const loggedInUser = useContext(UserContext)
 
-  return (<>
+  return (  
+    <BrowserRouter>
+      <div className="App">
+        <header className="App-header">
+          <h1> Alex and Jacks's Magical Marketplace</h1>
+        </header>
+      </div>
   
+      <p>Welcome: {currentUser} </p>
+      <CreateUserProfile />
+      <Cart currentCart={currentCart} setCurrentCart={setCurrentCart}/>
+      <ChangeUser currentUser={currentUser} setCurrentUser={setCurrentUser}/>
+      <Homepage currentCart={currentCart} setCurrentCart={setCurrentCart}/>
   
-    <div className="App">
-      <header className="App-header">
-        <h1> Alex and Jacks's Magical Marketplace</h1>
-      </header>
-    </div>
-        <p>Welcome: {currentUser} </p>
-        <CreateUserProfile />
-        <Cart currentCart={currentCart} setCurrentCart={setCurrentCart}/>
-        <ChangeUser setCurrentUser={setCurrentUser}/>
-        <Homepage currentCart={currentCart} setCurrentCart={setCurrentCart}/>
-        
-        </>
-
+    </BrowserRouter>      
   );
 }
 

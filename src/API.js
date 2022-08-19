@@ -10,3 +10,9 @@ return fetch(`https://online-store-nc.herokuapp.com/api/${endpoint}`).then((res)
 export const patchUser = (username = "Paul-R") => {
     return axios.patch(`https://online-store-nc.herokuapp.com/api/users/${username}`, {kudos_inc: 1})
 }
+
+
+
+export const postToAPI = (endpoint, obj) => {
+    return axios.post(`https://online-store-nc.herokuapp.com/api/${endpoint}`, obj)
+}

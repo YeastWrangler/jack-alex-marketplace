@@ -4,7 +4,7 @@ import {useEffect, useState} from "react"
 import ItemList from "./ItemList"
 
 
-function Homepage ({currentCart, setCurrentCart}) {
+function Homepage () {
 const [itemList, setItemList] = useState([])
 
     useEffect(() => {
@@ -14,7 +14,7 @@ const [itemList, setItemList] = useState([])
     }) 
 }, [])
 return <div>Hello
-        <ItemList items={itemList} currentCart={currentCart} setCurrentCart={setCurrentCart}/>
+        <ItemList items={itemList} />
 </div>
 }
 

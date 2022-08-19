@@ -1,6 +1,19 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import {getAPI} from '../API'
 
-const Cart = ({currentCart, setCurrentCart}) => {
+const Cart = ({username}) => {
+    const [currentCart, setCurrentCart] = useState([])
+
+    useEffect(() => {
+        const endpoint = `users/${username}/basket`
+        getAPI(endpoint).then(({items}) => {
+            setCurrentCart(items);
+        })
+        
+    }, [])
+
+
+    
     return (
         <div>
             this is your cart

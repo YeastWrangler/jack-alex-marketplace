@@ -1,9 +1,10 @@
 import axios from "axios"
 
-export const getAPI = (endpoint='items') => {
+export const getAPI = (endpoint) => {
 
 return fetch(`https://online-store-nc.herokuapp.com/api/${endpoint}`).then((res) => {
-        return res.json()
+        console.log(endpoint)        
+return res.json()
 })
 }
 

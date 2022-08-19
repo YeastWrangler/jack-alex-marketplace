@@ -2,20 +2,9 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 30vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -24,15 +13,41 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+#welcome-text {
+  text-align: center;
+  font-size: 40px;
+  font-weight: 500;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#nav-buttons {
+  margin: auto;
+  padding: 3px;
+  width: fit-content;
+  border: 3px solid black;
+}
+
+a {
+  margin: 5px 20px 5px;
+}
+
+.list-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
+}
+
+.list-item {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  list-style: none;
+}
+
+.list-item h3 {
+  text-align: center;
+}
+
+.list-item img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
 }

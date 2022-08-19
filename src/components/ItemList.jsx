@@ -11,9 +11,9 @@ const ItemList = ({items}) => {
 
     return (
         <div>
-            <ul>
+            <ul className="list-container">
             {items.map((item) => {
-                return <li key={item.item_id}> 
+                return <li className="list-item" key={item.item_id}> 
                     <h3>{item.item_name}</h3>
                     <img className="item__image" src={item.img_url} alt={item.item_name}/>
                     <p>{item.description}</p>

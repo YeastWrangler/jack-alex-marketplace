@@ -21,7 +21,7 @@ function App() {
         </header>
       </div>
   
-      <p>Welcome: {currentUser} </p>
+      <p id='welcome-text'>Welcome {currentUser} </p>
       
       <nav>
         <div id='nav-buttons'>

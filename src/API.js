@@ -13,6 +13,10 @@ export const patchUser = (username = "Paul-R") => {
 
 
 
-export const postToAPI = (endpoint, obj) => {
-    return axios.post(`https://online-store-nc.herokuapp.com/api/${endpoint}`, obj)
+export const postToAPI = (endpoint, itemID) => {
+    return axios.post(`https://online-store-nc.herokuapp.com/api/${endpoint}`, { item_id : itemID})
+}
+
+export const deleteFromAPI = (endpoint) => {
+    return axios.delete(`https://online-store-nc.herokuapp.com/api/${endpoint}`)
 }

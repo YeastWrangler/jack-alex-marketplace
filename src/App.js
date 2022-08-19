@@ -8,11 +8,10 @@ import {BrowserRouter, Link, Route, Routes} from "react-router-dom"
 import ItemList from './components/ItemList';
 import Cart from "./components/Cart"
 import CreateUserProfile from "./components/CreateUserProfile"
+import { UserContext } from './contexts/user';
 
 function App() {
-const [currentUser, setCurrentUser] = useState("Paul-R")
-  
-  //const loggedInUser = useContext(UserContext)
+  const [currentUser, setCurrentUser] = useState("")
 
   return (  
     <BrowserRouter>
@@ -33,12 +32,15 @@ const [currentUser, setCurrentUser] = useState("Paul-R")
         </div>
       </nav>
 
-      <Routes>
-        <Route path="/" element={<Homepage />}/>
-        <Route path="/change-user" element={<ChangeUser currentUser={currentUser} setCurrentUser={setCurrentUser}/>}/>
-        <Route path="/create-user" element={<CreateUserProfile />}/>
-        <Route path="/cart" element={<Cart username={currentUser}/>}/>
-      </Routes>
+      <UserContext.Provider value={{currentUser, setCurrentUser}}>
+        <Routes>
+          <Route path="/" element={<Homepage />}/>
+          <Route path="/change-user" element={<ChangeUser />}/>
+          <Route path="/create-user" element={<CreateUserProfile />}/>
+          <Route path="/cart" element={<Cart />}/>
+        </Routes>
+      </UserContext.Provider>
+
     
     </BrowserRouter>      
   );

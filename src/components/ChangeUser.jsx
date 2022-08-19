@@ -1,11 +1,12 @@
 import React from 'react'
 import {getAPI, patchUser} from "../API"
-import {useState, useEffect} from 'react'
+import {useState, useEffect, useContext} from 'react'
+import { UserContext } from '../contexts/user'
 
-
-
-const ChangeUser = ({currentUser, setCurrentUser}) => {
+const ChangeUser = () => {
+    const {currentUser, setCurrentUser} = useContext(UserContext)
     const [users, setUsers] = useState([])
+
     useEffect(() => {
         getAPI("users").then((data) => {
             setUsers(data.users);

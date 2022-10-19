@@ -11,7 +11,7 @@ const Cart = () => {
         getAPI(endpoint).then(({items}) => {
             setCurrentCart(items);
         })    
-    }, [currentCart])
+    }, [currentUser])
 
     const deleteItem = (event) => {
         const endpoint = `users/${currentUser}/basket/${event.target.value}`
@@ -25,7 +25,7 @@ const Cart = () => {
 
     if(currentUser) {return (
         <div>
-            this is your cart
+            <p id="cart"> Here's what's in your  🛒: </p>
             <ul className='list-container'> {currentCart.map(({item_name, img_url, price, item_id}) => {
                return <li className='list-item' key={item_name}> 
                <h3>{item_name}</h3>

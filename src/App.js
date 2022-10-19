@@ -2,33 +2,33 @@
 import './App.css';
 import React from "react"
 import Homepage from './components/Homepage.jsx';
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 import ChangeUser from "./components/ChangeUser"
 import {BrowserRouter, Link, Route, Routes} from "react-router-dom"
-import ItemList from './components/ItemList';
 import Cart from "./components/Cart"
 import CreateUserProfile from "./components/CreateUserProfile"
 import { UserContext } from './contexts/user';
 
 function App() {
-  const [currentUser, setCurrentUser] = useState("")
+  const [currentUser, setCurrentUser] = useState("guest")
 
   return (  
     <BrowserRouter>
-      <div className="App">
-        <header className="App-header">
-          <h1> Alex and Jacks's Magical Marketplace</h1>
+      <Link to="alex-magical-marketplace.netlify.app/"><div className="App">
+      <header className="App-header">
+          <h1> Alex's Magical Marketplace</h1> 
         </header>
-      </div>
+      </div></Link>
+ 
+      <p id='welcome-text'>Time for some shopping: {currentUser} </p>
   
-      <p id='welcome-text'>Welcome {currentUser} </p>
       
       <nav>
         <div id='nav-buttons'>
-          <Link to="/">Shop</Link>
-          <Link to="/change-user">Change User</Link>
-          <Link to="/create-user">Create User</Link>
-          <Link to="/cart">Cart</Link>
+          <Link to="alex-magical-marketplace.netlify.app/">Shop</Link>
+          <Link to="alex-magical-marketplace.netlify.app/change-user">Change User</Link>
+          <Link to="alex-magical-marketplace.netlify.app/create-user">Create User</Link>
+          <Link to="alex-magical-marketplace.netlify.app/cart">Cart</Link>
         </div>
       </nav>
 

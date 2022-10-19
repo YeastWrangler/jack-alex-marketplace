@@ -1,5 +1,4 @@
 import { useContext } from "react"
-import {Link} from "react-router-dom"
 import { postToAPI } from "../API"
 import { UserContext } from '../contexts/user'
 
@@ -10,11 +9,11 @@ const ItemList = ({items}) => {
     }
 
     return (
-        <div>
+        <div className="item-wrapper">
             <ul className="list-container">
             {items.map((item) => {
                 return <li className="list-item" key={item.item_id}> 
-                    <h3>{item.item_name}</h3>
+                    <h3>- {item.item_name} -</h3>
                     <img className="item__image" src={item.img_url} alt={item.item_name}/>
                     <p>{item.description}</p>
                     <p>£{item.price/100}</p>

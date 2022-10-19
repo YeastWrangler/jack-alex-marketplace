@@ -7,6 +7,8 @@ const ChangeUser = () => {
     const {currentUser, setCurrentUser} = useContext(UserContext)
     const [users, setUsers] = useState([])
 
+    console.log(currentUser, "check here")
+
     useEffect(() => {
         getAPI("users").then((data) => {
             setUsers(data.users);

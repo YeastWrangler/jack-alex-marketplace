@@ -16,9 +16,9 @@ const CategoryDropdown = ({setCategory}) => {
 
 return (
     <div>
-        <label htmlFor="category">Category: </label>
-        <select onChange={handleChangeCategory} name="category" >
-            <option key="null" value="">All categories</option>
+        <label id="category" htmlFor="category">   Category Selection: </label>
+        <select id="category-box" onChange={handleChangeCategory} name="category" >
+            <option key="null" value="">All Categories</option>
             {categoryList.map(({category_name}) => {
                 return <option key={category_name} value={category_name}>{category_name}</option>
             })}

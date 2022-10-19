@@ -14,7 +14,7 @@ const ItemList = ({items}) => {
             {items.map((item) => {
                 return <li className="list-item" key={item.item_id}> 
                     <h3>- {item.item_name} -</h3>
-                    <img className="item__image" src={item.img_url} alt={item.item_name}/>
+                    <img id="img" className="item__image" src={item.img_url} alt={item.item_name}/>
                     <p>{item.description}</p>
                     <p>£{item.price/100}</p>
                     <button onClick={addToBasket} value={item.item_id}>Add to your Cart </button>

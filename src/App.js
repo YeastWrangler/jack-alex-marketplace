@@ -14,7 +14,7 @@ function App() {
 
   return (  
     <BrowserRouter>
-      <Link to="https://alex-magical-marketplace.netlify.app/"><div className="App">
+      <Link to="/"><div className="App">
       <header className="App-header">
           <h1> Alex's Magical Marketplace</h1> 
         </header>
@@ -25,10 +25,10 @@ function App() {
       
       <nav>
         <div id='nav-buttons'>
-          <Link to="https://alex-magical-marketplace.netlify.app/">Shop</Link>
-          <Link to="https://alex-magical-marketplace.netlify.app/change-user">Change User</Link>
-          <Link to="https://alex-magical-marketplace.netlify.app/create-user">Create User</Link>
-          <Link to="https://alex-magical-marketplace.netlify.app/cart">Cart</Link>
+          <Link to="/">Shop</Link>
+          <Link to="/change-user">Change User</Link>
+          <Link to="/create-user">Create User</Link>
+          <Link to="/cart">Cart</Link>
         </div>
       </nav>
 
